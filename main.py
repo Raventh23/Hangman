@@ -6,7 +6,7 @@ gameLetters = []
 gameLetters.extend(gameWord) #splits the gameword into letters
 
 userGuess = ""
-userLetters = []
+userCorrectLetters = []
 userGuessedLetters = []
 guesses = 6 #how many chances the user gets
 
@@ -16,3 +16,12 @@ while userGuess != gameWord and guesses > 0:
     userChoice = int(input("1.would you like to guess the word? \n2.would you like to guess a letter?"))
     if userChoice == 1:
         userGuess = input("Put in the word you're guessing!")
+    if userChoice == 2:
+        userLetter = input("put in the letter you wish to guess")
+        if userLetter in gameLetters:
+            print(f"the letter {userLetter} is in the word")
+            userCorrectLetters.append(userLetter)
+            userGuessedLetters.append(userLetter)
+        else:
+            print(f"{userLetter} is not one of the letters")
+            userGuessedLetters.append(userLetter)
